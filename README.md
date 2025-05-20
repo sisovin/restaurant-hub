@@ -56,6 +56,37 @@ restaurant-hub/
 
 ## Getting Started
 
+### Git Repository Configuration
+
+This project may contain nested Git repositories. If you encounter the following warning:
+
+```
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+```
+
+You have two options:
+
+1. **Convert to a Git submodule** (Recommended if you need to track the nested repo separately):
+   ```bash
+   git rm --cached apps/web  # Remove the inner repo from Git tracking
+   git submodule add <url> apps/web  # Add as proper submodule
+   ```
+
+2. **Remove the nested .git directory** (Recommended for a single unified repository):
+   ```bash
+   rm -rf apps/web/.git  # On macOS/Linux
+   # OR
+   rmdir /s /q apps\web\.git  # On Windows
+   ```
+
+   Then add and commit the changes:
+   ```bash
+   git add apps/web
+   git commit -m "Remove nested git repository, combine into single repo"
+   ```
+
 ### Prerequisites
 
 - Node.js (v18+)
