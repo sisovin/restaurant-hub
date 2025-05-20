@@ -1,0 +1,382 @@
+// This is the Prisma schema file for the Restaurant Hub Project
+// It uses PostgreSQL as the database and implements a self-delete design pattern
+
+generator client {
+  provider = "prisma-client-py"
+  interface = "sync"
+  recursive_type_depth = 5
+  enable_experimental_decimal = true
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Model for User management
+model User {
+  id              String          @id @default(uuid())
+  email           String          @unique
+  passwordHash    String
+  firstName       String?
+  lastName        String?
+  phoneNumber     String?
+  role            UserRole        @default(USER)
+  isActive        Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  deletedAt       DateTime?       // Soft delete implementation
+  
+  // Relationships
+  restaurants     Restaurant[]    // User can own multiple restaurants
+  orders          Order[]         // User can place multiple orders
+  reviews         Review[]        // User can write multiple reviews
+  reservations    Reservation[]   // User can make multiple reservations
+
+  @@map("users")
+  @@index([email])
+}
+
+// Model for Restaurant management
+model Restaurant {
+  id              String          @id @default(uuid())
+  name            String
+  description     String?
+  address         String
+  city            String
+  state           String?
+  country         String
+  postalCode      String
+  phoneNumber     String
+  email           String?
+  website         String?
+  openingHours    Json?           // Store as JSON: {"monday": {"open": "09:00", "close": "22:00"}, ...}
+  cuisineType     String[]
+  priceRange      PriceRange      @default(MODERATE)
+  isActive        Boolean         @default(true)
+  isVerified      Boolean         @default(false)
+  rating          Float?          // Average rating calculated from reviews
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  deletedAt       DateTime?       // Soft delete implementation
+  
+  // Foreign keys
+  ownerId         String
+  
+  // Relationships
+  owner           User            @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  menus           Menu[]
+  tables          Table[]
+  reviews         Review[]
+  orders          Order[]
+  reservations    Reservation[]
+  images          RestaurantImage[]
+
+  @@map("restaurants")
+  @@index([ownerId])
+  @@index([cuisineType])
+  @@index([city, state, country])
+}
+
+// Model for restaurant images
+model RestaurantImage {
+  id              String        @id @default(uuid())
+  imageUrl        String
+  altText         String?
+  isPrimary       Boolean       @default(false)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  restaurantId    String
+  
+  // Relationships
+  restaurant      Restaurant    @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@map("restaurant_images")
+  @@index([restaurantId])
+}
+
+// Model for Menu management
+model Menu {
+  id              String        @id @default(uuid())
+  name            String
+  description     String?
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  restaurantId    String
+  
+  // Relationships
+  restaurant      Restaurant    @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  categories      MenuCategory[]
+
+  @@map("menus")
+  @@index([restaurantId])
+}
+
+// Model for Menu Categories
+model MenuCategory {
+  id              String        @id @default(uuid())
+  name            String
+  description     String?
+  displayOrder    Int           @default(0)
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  menuId          String
+  
+  // Relationships
+  menu            Menu          @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  items           MenuItem[]
+
+  @@map("menu_categories")
+  @@index([menuId])
+}
+
+// Model for Menu Items/Dishes
+model MenuItem {
+  id              String        @id @default(uuid())
+  name            String
+  description     String?
+  price           Decimal       @db.Decimal(10, 2)
+  imageUrl        String?
+  ingredients     String?
+  allergens       String[]
+  isVegetarian    Boolean       @default(false)
+  isVegan         Boolean       @default(false)
+  isGlutenFree    Boolean       @default(false)
+  spicyLevel      Int?          @default(0) // 0-5 scale
+  isAvailable     Boolean       @default(true)
+  displayOrder    Int           @default(0)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  categoryId      String
+  
+  // Relationships
+  category        MenuCategory  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  orderItems      OrderItem[]
+
+  @@map("menu_items")
+  @@index([categoryId])
+  @@index([isVegetarian, isVegan, isGlutenFree])
+}
+
+// Model for Restaurant Tables
+model Table {
+  id              String        @id @default(uuid())
+  tableNumber     String
+  capacity        Int
+  isAvailable     Boolean       @default(true)
+  location        TableLocation @default(INDOOR)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  restaurantId    String
+  
+  // Relationships
+  restaurant      Restaurant    @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  reservations    Reservation[]
+
+  @@map("tables")
+  @@index([restaurantId])
+  @@unique([restaurantId, tableNumber])
+}
+
+// Model for Reservations
+model Reservation {
+  id              String          @id @default(uuid())
+  reservationDate DateTime
+  startTime       DateTime
+  endTime         DateTime
+  guestCount      Int
+  specialRequests String?
+  status          ReservationStatus @default(PENDING)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  cancelledAt     DateTime?       // When reservation was cancelled
+  deletedAt       DateTime?       // Soft delete implementation
+  
+  // Foreign keys
+  userId          String
+  restaurantId    String
+  tableId         String
+  
+  // Relationships
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  restaurant      Restaurant      @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  table           Table           @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  @@map("reservations")
+  @@index([userId])
+  @@index([restaurantId])
+  @@index([tableId])
+  @@index([reservationDate])
+  @@index([status])
+}
+
+// Model for Orders
+model Order {
+  id              String        @id @default(uuid())
+  orderNumber     String        @unique
+  orderType       OrderType     @default(DINE_IN)
+  status          OrderStatus   @default(PENDING)
+  totalAmount     Decimal       @db.Decimal(10, 2)
+  taxAmount       Decimal       @db.Decimal(10, 2)
+  tipAmount       Decimal?      @db.Decimal(10, 2)
+  discountAmount  Decimal?      @db.Decimal(10, 2)
+  deliveryAddress String?       // Required for delivery orders
+  deliveryFee     Decimal?      @db.Decimal(10, 2)
+  paymentMethod   PaymentMethod @default(CREDIT_CARD)
+  paymentStatus   PaymentStatus @default(PENDING)
+  specialInstructions String?
+  estimatedDeliveryTime DateTime?
+  orderPlacedAt   DateTime      @default(now())
+  orderCompletedAt DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  userId          String
+  restaurantId    String
+  
+  // Relationships
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  restaurant      Restaurant    @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  orderItems      OrderItem[]
+
+  @@map("orders")
+  @@index([userId])
+  @@index([restaurantId])
+  @@index([status])
+  @@index([paymentStatus])
+  @@index([orderPlacedAt])
+}
+
+// Model for Order Items
+model OrderItem {
+  id              String        @id @default(uuid())
+  quantity        Int
+  unitPrice       Decimal       @db.Decimal(10, 2)
+  totalPrice      Decimal       @db.Decimal(10, 2)
+  specialInstructions String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  orderId         String
+  menuItemId      String
+  
+  // Relationships
+  order           Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItem        MenuItem      @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
+
+  @@map("order_items")
+  @@index([orderId])
+  @@index([menuItemId])
+}
+
+// Model for Reviews
+model Review {
+  id              String        @id @default(uuid())
+  rating          Int           // 1-5 stars
+  comment         String?
+  isPublished     Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?     // Soft delete implementation
+  
+  // Foreign keys
+  userId          String
+  restaurantId    String
+    // Relationships
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  restaurant      Restaurant    @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@map("reviews")
+  @@index([userId])
+  @@index([restaurantId])
+  @@index([rating])
+}
+
+// ENUMS
+
+enum UserRole {
+  ADMIN
+  RESTAURANT_OWNER
+  STAFF
+  USER
+}
+
+enum PriceRange {
+  BUDGET
+  MODERATE
+  EXPENSIVE
+  LUXURY
+}
+
+enum TableLocation {
+  INDOOR
+  OUTDOOR
+  BALCONY
+  PRIVATE_ROOM
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+  NO_SHOW
+}
+
+enum OrderType {
+  DINE_IN
+  TAKEOUT
+  DELIVERY
+  CATERING
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  READY
+  OUT_FOR_DELIVERY
+  DELIVERED
+  PICKED_UP
+  COMPLETED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CASH
+  CREDIT_CARD
+  DEBIT_CARD
+  MOBILE_PAYMENT
+  ONLINE_PAYMENT
+  GIFT_CARD
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}

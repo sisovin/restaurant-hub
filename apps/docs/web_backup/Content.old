@@ -1,0 +1,681 @@
+{/* Facts Start */}
+      <div className="container-fluid bg-dark facts p-5 my-5">
+        <div className="row gx-5 gy-4 py-5">
+          <div className="col-lg-3 col-md-6">
+              <div className={`rounded-circle d-flex align-items-center justify-content-center mb-3 ${styles.factIconContainer}`}>
+                style={{ width: '80px', height: '80px', background: '#111111' }}>
+                <i className="fa fa-star fs-4 text-primary"></i>
+              </div>
+              <div className="ps-4">
+                <h5 className="text-white">Years</h5>
+                <h1 className="display-5 text-secondary mb-0">
+                  <AnimatedCounter end={15} suffix="+" />
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="d-flex">
+              <div className="rounded-circle d-flex align-items-center justify-content-center mb-3"
+                style={{ width: '80px', height: '80px', background: '#111111' }}>
+                <i className="fa fa-users fs-4 text-primary"></i>
+              </div>
+              <div className="ps-4">
+                <h5 className="text-white">Clients</h5>
+                <h1 className="display-5 text-secondary mb-0">
+                  <AnimatedCounter end={1250} suffix="+" />
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="d-flex">
+              <div className="rounded-circle d-flex align-items-center justify-content-center mb-3"
+                style={{ width: '80px', height: '80px', background: '#111111' }}>
+                <i className="fa fa-check fs-4 text-primary"></i>
+              </div>
+              <div className="ps-4">
+                <h5 className="text-white">Awards</h5>
+                <h1 className="display-5 text-secondary mb-0">
+                  <AnimatedCounter end={50} suffix="+" />
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="d-flex">
+              <div className="rounded-circle d-flex align-items-center justify-content-center mb-3"
+                style={{ width: '80px', height: '80px', background: '#111111' }}>
+                <i className="fa fa-mug-hot fs-4 text-primary"></i>
+              </div>
+              <div className="ps-4">
+                <h5 className="text-white">Events</h5>
+                <h1 className="display-5 text-secondary mb-0">
+                  <AnimatedCounter end={1234} suffix="+" />
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      {/* Facts End */}
+
+      {/* Feature Start */}
+      <div className="container-fluid feature position-relative p-5 pb-0 mt-5">
+        <div className="row g-5 gb-5">
+          <div className="col-lg-4 col-md-6">
+            <div className="feature-item rounded text-center p-5">
+              <div className="d-flex align-items-center justify-content-center mb-3">
+                <Image
+                  className="img-fluid bg-white rounded-circle"
+                  src="/images/feature-1.png"
+                  alt="Feature"
+                  width={150}
+                  height={150}
+                />
+              </div>
+              <h3 className="my-4">Best Chef</h3>
+              <p className="text-light">Sed amet tempor amet sit kasd sea lorem dolor ipsum elitr dolor amet kasd
+                elitr duo vero amet amet stet</p>
+              <a className={`font-body ${styles.letterSpacing1}`} href="#">Read More <i
+                className="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <div className="feature-item rounded text-center p-5">
+              <div className="d-flex align-items-center justify-content-center mb-3">
+                <Image
+                  className="img-fluid bg-white rounded-circle"
+                  src="/images/feature-2.png"
+                  alt="Feature"
+                  width={150}
+                  height={150}
+                />
+              </div>
+              <h3 className="my-4">Menu Variations</h3>
+              <p className="text-light">Sed amet tempor amet sit kasd sea lorem dolor ipsum elitr dolor amet kasd
+                elitr duo vero amet amet stet</p>
+              <a className="font-body" style={{ letterSpacing: '1px' }} href="#">Read More <i
+                className="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <div className="feature-item rounded text-center p-5">
+              <div className="d-flex align-items-center justify-content-center mb-3">
+                <Image
+                  className="img-fluid bg-white rounded-circle"
+                  src="/images/feature-3.png"
+                  alt="Feature"
+                  width={150}
+                  height={150}
+                />
+              </div>
+              <h3 className="my-4">Healthy Food</h3>
+              <p className="text-light">Sed amet tempor amet sit kasd sea lorem dolor ipsum elitr dolor amet kasd
+                elitr duo vero amet amet stet</p>
+              <a className="font-body" style={{ letterSpacing: '1px' }} href="#">Read More <i
+                className="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div className="col-lg-12 col-md-6 text-center">
+            <AnimatedElement animation="zoomIn" delay={300}>
+              <h1 className="display-4 text-secondary mb-4"><span className="text-primary">30% Discount</span><br /> For This Summer</h1>
+              <a href="#" className="btn btn-primary py-3 px-5">Order Now</a>
+            </AnimatedElement>
+          </div>
+        </div>
+      </div>
+      {/* Feature End */}
+
+      {/* Menu Start */}
+      <div className="container-fluid menu py-5 px-0">
+        <RevealOnScroll>
+          <div className={`mb-5 text-center ${styles.sectionTitleContainer}`}>
+            <h5 className="section-title">Our Menu</h5>
+            <h1 className="display-3 mb-0">Hands Craft More Than Meals</h1>
+          </div>
+        </RevealOnScroll>
+        <div className="tab-class text-center">
+          <ul className="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase rounded-pill mb-5">
+            <li className="nav-item">
+              <a className={`nav-link rounded-pill text-white ${activeTab === "tab-1" ? "active" : ""}`} onClick={() => setActiveTab("tab-1")} href="#" aria-label="Breakfast menu">Breakfast</a>
+            </li>
+            <li className="nav-item">
+              <a className={`nav-link rounded-pill text-white ${activeTab === "tab-2" ? "active" : ""}`} onClick={() => setActiveTab("tab-2")} href="#" aria-label="Lunch menu">Lunch</a>
+            </li>
+            <li className="nav-item">
+              <a className={`nav-link rounded-pill text-white ${activeTab === "tab-3" ? "active" : ""}`} onClick={() => setActiveTab("tab-3")} href="#" aria-label="Dinner menu">Dinner</a>
+            </li>
+          </ul>
+          <div className="tab-content">
+            <div id="tab-1" className={`tab-pane fade show p-0 ${activeTab === "tab-1" ? "active" : ""}`}>
+              <div className="row g-0">
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div className={styles.menuImageContainer}>
+                      <Image
+                        src="/images/menu-1.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      BBQ Chicken
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-2.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Vegetarian Pasta
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-3.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Grilled Salmon
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-4.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Caesar Salad
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab-2" className={`tab-pane fade show p-0 ${activeTab === "tab-2" ? "active" : ""}`}>
+              <div className="row g-0">
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-5.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Steak Special
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-6.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Seafood Platter
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-7.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Chicken Curry
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-8.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Mushroom Risotto
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab-3" className={`tab-pane fade show p-0 ${activeTab === "tab-3" ? "active" : ""}`}>
+              <div className="row g-0">
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-1.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Gourmet Burger
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-3.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Duck Confit
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-5.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Beef Wellington
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6">
+                  <div className="position-relative">
+                    <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                      <Image
+                        src="/images/menu-7.jpg"
+                        alt="Menu"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="position-absolute bottom-0 end-0 mb-4 me-4 py-1 px-3 bg-dark rounded-pill text-primary">
+                      Lobster Thermidor
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Menu End */}
+
+      {/* Team Start */}
+      <div className="container-fluid p-5">
+        <RevealOnScroll>
+          <div className="mb-5 text-center" style={{ maxWidth: '700px', margin: 'auto' }}>
+            <h5 className="section-title">Expert Chefs</h5>
+            <h1 className="display-3 mb-0">Let&apos;s Meet The Expert</h1>
+          </div>
+        </RevealOnScroll>
+        <div className="row g-5">
+          <div className="col-lg-4 col-md-6">
+            <AnimatedElement animation="fadeUp" delay={100}>
+              <div className="team-item position-relative">
+                <div className="position-relative overflow-hidden rounded-circle rounded-bottom rounded-end">
+                  <div className={styles.teamImage}>
+                    <ParallaxSection intensity={0.1}>
+                      <Image
+                        src="/images/team-1.jpg"
+                        alt="Team Member"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </ParallaxSection>
+                  </div>
+                  <div className="team-overlay">
+                    <div className="d-flex align-items-center justify-content-start">
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="Twitter"><i
+                        className="fab fa-twitter"></i></a>
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="Facebook"><i
+                        className="fab fa-facebook-f"></i></a>
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="LinkedIn"><i
+                        className="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div className="position-absolute start-0 bottom-0 d-flex flex-column justify-content-center w-100 rounded-bottom text-center"
+                  className={styles.teamOverlay}>
+                  <h5 className="text-light">John Doe</h5>
+                  <p className={`small text-uppercase text-secondary m-0 ${styles.letterSpacing3}`}>Master Chef</p>
+                </div>
+              </div>
+            </AnimatedElement>
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <AnimatedElement animation="fadeUp" delay={200}>
+              <div className="team-item position-relative">
+                <div className="position-relative overflow-hidden rounded-circle rounded-bottom rounded-end">
+                  <div style={{ width: '100%', height: '400px', position: 'relative' }}>
+                    <ParallaxSection intensity={0.1}>
+                      <Image
+                        src="/images/team-2.jpg"
+                        alt="Team Member"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </ParallaxSection>
+                  </div>
+                  <div className="team-overlay">
+                    <div className="d-flex align-items-center justify-content-start">
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="Twitter"><i
+                        className="fab fa-twitter"></i></a>
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="Facebook"><i
+                        className="fab fa-facebook-f"></i></a>
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="LinkedIn"><i
+                        className="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div className="position-absolute start-0 bottom-0 d-flex flex-column justify-content-center w-100 rounded-bottom text-center"
+                  style={{ height: '100px', background: 'rgba(34, 36, 41, .9)' }}>
+                  <h5 className="text-light">Jane Smith</h5>
+                  <p className="small text-uppercase text-secondary m-0" style={{ letterSpacing: '3px' }}>Assistant</p>
+                </div>
+              </div>
+            </AnimatedElement>
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <AnimatedElement animation="fadeUp" delay={300}>
+              <div className="team-item position-relative">
+                <div className="position-relative overflow-hidden rounded-circle rounded-bottom rounded-end">
+                  <div style={{ width: '100%', height: '400px', position: 'relative' }}>
+                    <ParallaxSection intensity={0.1}>
+                      <Image
+                        src="/images/team-3.jpg"
+                        alt="Team Member"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </ParallaxSection>
+                  </div>
+                  <div className="team-overlay">
+                    <div className="d-flex align-items-center justify-content-start">
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="Twitter"><i
+                        className="fab fa-twitter"></i></a>
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="Facebook"><i
+                        className="fab fa-facebook-f"></i></a>
+                      <a className="btn btn-light btn-square rounded-circle mx-1" href="#" aria-label="LinkedIn"><i
+                        className="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div className="position-absolute start-0 bottom-0 d-flex flex-column justify-content-center w-100 rounded-bottom text-center"
+                  style={{ height: '100px', background: 'rgba(34, 36, 41, .9)' }}>
+                  <h5 className="text-light">Robert Johnson</h5>
+                  <p className="small text-uppercase text-secondary m-0" style={{ letterSpacing: '3px' }}>Assistant</p>
+                </div>
+              </div>
+            </AnimatedElement>
+          </div>
+        </div>
+      </div>
+      {/* Team End */}
+
+      {/* Testimonial Start */}
+      <div className="container-fluid p-0 my-5">
+        <div className="row g-0">
+          <div className={`col-lg-6 ${styles.testimonialMinHeight}`}>
+            <div className={`h-100 position-relative overflow-hidden ${styles.testimonialLeftRadius}`}>
+              <div className={styles.testimonialImage}>
+                <ParallaxSection intensity={0.05}>
+                  <Image
+                    src="/images/testimonial.jpg"
+                    alt="Testimonial"
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </ParallaxSection>
+              </div>
+            </div>
+          </div>
+          <div className={`col-lg-6 bg-dark p-5 overflow-hidden ${styles.testimonialRightRadius}`}>
+            <RevealOnScroll>
+              <div className="mb-5">
+                <h5 className="section-title">Testimonial</h5>
+                <h1 className="display-3 text-secondary mb-0">Our Client Say</h1>
+              </div>
+            </RevealOnScroll>
+            <div className="testimonial-carousel">
+              <AnimatedElement animation="fadeRight" delay={200}>
+                <div className="testimonial-item">
+                  <p className="fs-4 fw-normal text-light mb-4"><i
+                    className="fa fa-quote-left text-primary me-3"></i>Dolores sed duo clita tempor justo dolor
+                    et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore
+                    et tempor diam tempor erat dolor rebum sit ipsum.</p>
+                  <div className="d-flex align-items-center">
+                    <div className={styles.testimonialClientImage}>
+                      <Image
+                        className="rounded-circle"
+                        src="/images/testimonial-1.jpg"
+                        alt="Client"
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                    <div className="ps-4">
+                      <h5 className="text-secondary">Client Name</h5>
+                      <span className={`small text-uppercase text-secondary ${styles.letterSpacing3}`}>Profession</span>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedElement>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Testimonial End */}
+
+      {/* Blog Start */}
+      <div className="container-fluid p-5">
+        <RevealOnScroll>
+          <div className="mb-5 text-center" style={{ maxWidth: '700px', margin: 'auto' }}>
+            <h5 className="section-title">Our Blog</h5>
+            <h1 className="display-3 mb-0">Latest Articles From Food Blog</h1>
+          </div>
+        </RevealOnScroll>
+        <div className="row g-5">
+          <div className="col-lg-4 col-md-6">
+            <AnimatedElement animation="fadeUp" delay={100}>
+              <div className="blog-item">
+                <div className="position-relative overflow-hidden rounded-top">
+                  <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                    <Image
+                      src="/images/menu-3.jpg"
+                      alt="Blog"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </div>
+                <div className="bg-dark d-flex align-items-center rounded-bottom p-4">
+                  <div className="flex-shrink-0 text-center text-secondary border-end border-secondary pe-3 me-3">
+                    <span>01</span>
+                    <h6 className="text-primary text-uppercase mb-0">January</h6>
+                    <span>2023</span>
+                  </div>
+                  <a className="h5 lh-base text-light" href="#">Mastering the Art of Cooking Pasta</a>
+                </div>
+              </div>
+            </AnimatedElement>
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <AnimatedElement animation="fadeUp" delay={200}>
+              <div className="blog-item">
+                <div className="position-relative overflow-hidden rounded-top">
+                  <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                    <Image
+                      src="/images/menu-5.jpg"
+                      alt="Blog"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </div>
+                <div className="bg-dark d-flex align-items-center rounded-bottom p-4">
+                  <div className="flex-shrink-0 text-center text-secondary border-end border-secondary pe-3 me-3">
+                    <span>15</span>
+                    <h6 className="text-primary text-uppercase mb-0">February</h6>
+                    <span>2023</span>
+                  </div>
+                  <a className="h5 lh-base text-light" href="#">The Secret to Perfect Grilled Steak</a>
+                </div>
+              </div>
+            </AnimatedElement>
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <AnimatedElement animation="fadeUp" delay={300}>
+              <div className="blog-item">
+                <div className="position-relative overflow-hidden rounded-top">
+                  <div style={{ width: '100%', height: '250px', position: 'relative' }}>
+                    <Image
+                      src="/images/menu-7.jpg"
+                      alt="Blog"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </div>
+                <div className="bg-dark d-flex align-items-center rounded-bottom p-4">
+                  <div className="flex-shrink-0 text-center text-secondary border-end border-secondary pe-3 me-3">
+                    <span>10</span>
+                    <h6 className="text-primary text-uppercase mb-0">March</h6>
+                    <span>2023</span>
+                  </div>
+                  <a className="h5 lh-base text-light" href="#">Healthy Cooking Tips From Professional Chefs</a>
+                </div>
+              </div>
+            </AnimatedElement>
+          </div>
+        </div>
+      </div>
+      {/* Blog End */}
+
+      {/* Instagram Start */}
+      <div className="container-fluid position-relative instagram p-0 mt-5">
+        <AnimatedElement animation="zoomIn" delay={300}>
+          <a href="#" className="d-flex align-items-center justify-content-center position-absolute top-50 start-50 translate-middle bg-white rounded-circle" style={{ width: '100px', height: '100px', zIndex: 1 }} aria-label="Instagram">
+          <a href="#" className={`d-flex align-items-center justify-content-center position-absolute top-50 start-50 translate-middle bg-white rounded-circle ${styles.instagramButton}`} aria-label="Instagram">
+          </a>
+        </AnimatedElement>
+        <div className="row g-0">
+          <div className="col-lg-2 col-md-3 col-sm-4">
+            <RevealOnScroll>
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+              <div className={styles.instagramImage}>
+                  src="/images/menu-2.jpg"
+                  alt="Instagram"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
+          <div className="col-lg-2 col-md-3 col-sm-4">
+            <RevealOnScroll>
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <Image
+                  src="/images/menu-3.jpg"
+                  alt="Instagram"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
+          <div className="col-lg-2 col-md-3 col-sm-4">
+            <RevealOnScroll>
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <Image
+                  src="/images/menu-4.jpg"
+                  alt="Instagram"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
+          <div className="col-lg-2 col-md-3 col-sm-4">
+            <RevealOnScroll>
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <Image
+                  src="/images/menu-5.jpg"
+                  alt="Instagram"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
+          <div className="col-lg-2 col-md-3 col-sm-4">
+            <RevealOnScroll>
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <Image
+                  src="/images/menu-6.jpg"
+                  alt="Instagram"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
+          <div className="col-lg-2 col-md-3 col-sm-4">
+            <RevealOnScroll>
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <Image
+                  src="/images/menu-7.jpg"
+                  alt="Instagram"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </div>
+      {/* Instagram End */}   
+    
