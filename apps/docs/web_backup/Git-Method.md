@@ -1,13 +1,25 @@
-sisovin: Help to fix the Home compoent to match the HTML code below:
-<!-- Header Start -->
-    <div class="container-fluid bg-dark px-0">
-        <div class="row gx-0 wow fadeIn" data-wow-delay="0.1s">
-            <div class="col-lg-3 bg-primary d-none d-lg-block">
-                <a href="index.html"
-                    class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                    <h1 class="m-0 display-4 text-white text-uppercase">Chefer</h1>
-                </a>
-            </div>
+# Git Methods for Restaurant Hub Project
+
+This document outlines the Git methods used in the Restaurant Hub project.
+
+## Repository Setup
+
+To set up the repository for the Restaurant Hub project, follow these steps:
+
+1. Initialize the repository:
+   ```bash
+   git init
+   ```
+
+2. Add the remote origin:
+   ```bash
+   git remote add origin https://github.com/sisovin/restaurant-hub.git
+   ```
+
+3. Create the initial structure:
+   ```bash
+   mkdir -p apps/api apps/web apps/docs
+   ```
             <div class="col-lg-9">
                 <div class="row gx-0 d-none d-lg-flex bg-dark">
                     <div class="col-6 px-5 text-start">
