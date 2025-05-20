@@ -102,7 +102,7 @@ apps/api/temp/
 # Documentation
 /docs/_book/
 /docs/api/
-/docs*
+# Removed apps/docs/ from ignore list to include documentation
 
 # Misc
 .vercel
