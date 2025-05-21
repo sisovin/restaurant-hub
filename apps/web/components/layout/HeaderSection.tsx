@@ -1,8 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import UserAvatar from './UserAvatar'
+import ThemeSwitcher from './ThemeSwitcher'
+import SocialGroups from './SocialGroups'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { Mail, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     DropdownMenu,
@@ -19,17 +23,17 @@ interface HeaderSectionProps {
 export default function HeaderSection({ activeLink = 'home' }: HeaderSectionProps) {
     const pathname = usePathname()
     const [isSticky, setIsSticky] = useState(false)
-    
+
     useEffect(() => {
         const handleScroll = () => setIsSticky(window.scrollY > 90)
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
-    
+
     const navLink = (href: string, label: string) => {
-        const isActive = pathname === href || (href === '/' && activeLink === 'home') || 
-                        (href.includes(activeLink) && activeLink !== 'home');
-          return (
+        const isActive = pathname === href || (href === '/' && activeLink === 'home') ||
+            (href.includes(activeLink) && activeLink !== 'home');
+        return (
             <Link
                 href={href}
                 className={cn(
@@ -45,19 +49,21 @@ export default function HeaderSection({ activeLink = 'home' }: HeaderSectionProp
     return (
         <header className={cn('w-full z-50', isSticky && 'sticky top-0 bg-black shadow')}>
             <div className="grid grid-cols-[260px_1fr] grid-rows-2">
-                {/* Left Logo (spans 2 rows) */}                <div className="row-span-2 bg-orange-600 flex items-center justify-center">
+                {/* Left Logo (spans 2 rows) */}
+                <div className="row-span-2 bg-orange-600 flex items-center justify-center">
                     <Link href="/" className="text-white text-3xl font-extrabold uppercase font-heading">
                         Chefer
                     </Link>
                 </div>
 
-                {/* Top Bar */}                <div className="bg-[#1a1a1a] text-white text-sm px-6 py-2 flex justify-between items-center">
+                {/* Top Bar */}
+                <div className="bg-[#1a1a1a] text-white text-sm px-6 py-2 flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                        <i className="fa fa-envelope text-orange-500" />
+                        <Mail size={16} className="text-orange-500" />
                         <span className="font-body">info@example.com</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <i className="fa fa-phone-alt text-orange-500" />
+                        <Phone size={16} className="text-orange-500" />
                         <span className="font-body">+012 345 6789</span>
                     </div>
                 </div>
@@ -87,18 +93,14 @@ export default function HeaderSection({ activeLink = 'home' }: HeaderSectionProp
                         {navLink('/contact', 'Contact')}
                     </nav>
 
-                    {/* Social Icons */}
+                    {/* Social Icons, Theme Switcher, and User Avatar */}
                     <div className="hidden lg:flex gap-3 items-center">
-                        {['facebook-f', 'twitter', 'linkedin-in'].map(icon => (
-                            <Link 
-                                key={icon}
-                                href="#"
-                                className="w-9 h-9 flex items-center justify-center border border-gray-400 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white transition"
-                                aria-label={`${icon.replace('-', ' ')} social link`}
-                            >
-                                <i className={`fab fa-${icon}`} />
-                            </Link>
-                        ))}
+                        {/* User Avatar */}
+                        <UserAvatar />
+                        {/* Theme Switcher */}
+                        <ThemeSwitcher />
+                        {/* Social Groups */}
+                        <SocialGroups />
                     </div>
                 </div>
             </div>

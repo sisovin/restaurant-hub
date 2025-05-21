@@ -1,5 +1,6 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import "tailwindcss";
+@import "./fonts.css";
 
 @custom-variant dark (&:is(.dark *));
 

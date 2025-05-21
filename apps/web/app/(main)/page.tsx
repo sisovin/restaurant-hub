@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { handleStickyNav, handleBackToTop, handleTeamHover } from "@/lib/animation"
 import HeroCard from "@/components/contents/HeroCard"
 import AboutCard from "@/components/contents/AboutCard"
+import Facts from "@/components/contents/Facts"
 
 export default function HomePage() {
   const [showSpinner, setShowSpinner] = useState(true)
@@ -37,7 +38,9 @@ export default function HomePage() {
       <HeroCard />
       {/* About Start */}
       <AboutCard />
-      {/* About End */}      
+      {/* About End */}
+      {/* Facts Start */}
+      <Facts />
     </main>
   )
 }

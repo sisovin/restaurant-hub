@@ -2,6 +2,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { AnimatedElement } from '../animation'
+import SocialGroups from './SocialGroups'
+import { MapPin, Mail, Phone, ArrowRight } from 'lucide-react'
 
 export default function FooterSection() {
     return (
@@ -13,29 +15,20 @@ export default function FooterSection() {
                         {/* Left Column - Contact Info */}                        <AnimatedElement animation="fadeIn" delay={100} className="flex-1 space-y-4">
                             <h4 className="text-white text-2xl font-body mb-4">Get In Touch</h4>
                             <div className="flex items-start gap-2">
-                                <i className="bi bi-geo-alt text-orange-500 mt-1"></i>
+                                <MapPin size={18} className="text-orange-500 mt-1" />
                                 <p className="font-body">123 Street, New York, USA</p>
                             </div>
                             <div className="flex items-start gap-2">
-                                <i className="bi bi-envelope-open text-orange-500 mt-1"></i>
+                                <Mail size={18} className="text-orange-500 mt-1" />
                                 <p className="font-body">info@example.com</p>
                             </div>
                             <div className="flex items-start gap-2">
-                                <i className="bi bi-telephone text-orange-500 mt-1"></i>
+                                <Phone size={18} className="text-orange-500 mt-1" />
                                 <p>+012 345 6789</p>
                             </div>
-
-                            <div className="flex gap-3 pt-4">
-                                {['twitter', 'facebook-f', 'linkedin-in', 'instagram'].map((icon) => (
-                                    <Link
-                                        key={icon}
-                                        href="#"
-                                        className="w-10 h-10 flex items-center justify-center border border-orange-500 text-white rounded-full bg-orange-500 hover:text-gray-300 transition"
-                                        aria-label={icon}
-                                    >
-                                        <i className={`fab fa-${icon}`}></i>
-                                    </Link>
-                                ))}
+                            {/* Footer Social Groups */}
+                            <div className="pt-4">
+                                <SocialGroups />
                             </div>
                         </AnimatedElement>                        {/* Middle Column - Quick Links */}
                         <AnimatedElement animation="fadeIn" delay={300} className="flex-1 space-y-4">
@@ -49,7 +42,7 @@ export default function FooterSection() {
                                 ['/contact', 'Contact Us'],
                             ].map(([href, label]) => (
                                 <Link key={label} href={href} className="flex items-center text-neutral-400 hover:text-white mb-1 font-body">
-                                    <i className="bi bi-arrow-right text-orange-500 mr-2"></i> {label}
+                                    <ArrowRight size={16} className="text-orange-500 mr-2" /> {label}
                                 </Link>
                             ))}
                         </AnimatedElement>                        {/* Right Column - More Links */}
@@ -63,7 +56,7 @@ export default function FooterSection() {
                                 ['/contact', 'Contact Us'],
                             ].map(([href, label]) => (
                                 <Link key={label} href={href} className="flex items-center text-neutral-400 hover:text-white mb-1 font-body">
-                                    <i className="bi bi-arrow-right text-orange-500 mr-2"></i> {label}
+                                    <ArrowRight size={16} className="text-orange-500 mr-2" /> {label}
                                 </Link>
                             ))}
                         </AnimatedElement>                        {/* Newsletter */}
@@ -92,7 +85,8 @@ export default function FooterSection() {
                         </AnimatedElement>
 
                     </div>
-                </div>                {/* Bottom Footer */}
+                </div>
+                {/* Bottom Footer */}
                 <div className="border-t border-neutral-700 mt-10 py-4 px-6 bg-black">
                     <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-white">
                         <p className="font-body">

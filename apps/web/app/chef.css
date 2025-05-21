@@ -21,6 +21,38 @@
     animation: upDown 2s infinite alternate;
 }
 
+/* Rotating animation for about card circular image */
+.animate-rotate {
+    animation: rotate 15s linear infinite;
+}
+
+/* FadeIn animation for Facts component */
+.animate-fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes upDown {
     0% {
         transform: translateY(0);
@@ -28,20 +60,6 @@
 
     100% {
         transform: translateY(-20px);
-    }
-}
-
-.animate-rotate {
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
     }
 }
 
@@ -399,6 +417,7 @@
     text-decoration: none;
     vertical-align: middle;
     cursor: pointer;
+    -webkit-user-select: none;
     user-select: none;
     background-color: transparent;
     border: 1px solid transparent;

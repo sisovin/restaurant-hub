@@ -16,7 +16,8 @@ const config: Config = {
         screens: {
           "2xl": "1400px",
         },
-      },      extend: {
+      },
+      extend: {
         fontFamily: {
           chefer: ['"Lobster"', 'cursive'], // or any Google font
           heading: ['"Emblema One"', 'system-ui', 'sans-serif'],
@@ -75,10 +76,16 @@ const config: Config = {
             from: { height: "var(--radix-accordion-content-height)" },
             to: { height: "0" },
           },
+          fadeIn: {
+            '0%': { opacity: 0, transform: 'translateY(20px)' },
+            '100%': { opacity: 1, transform: 'translateY(0)' },
+          },
         },
         animation: {
           "accordion-down": "accordion-down 0.2s ease-out",
           "accordion-up": "accordion-up 0.2s ease-out",
+          'spin-slow': 'spin 8s linear infinite',
+          fadeIn: 'fadeIn 1s ease-in-out forwards',
         },
       }
     },

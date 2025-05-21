@@ -1,8 +1,9 @@
+"use client";
 
-{/* Back to Top */ }
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 
 export default function BackToTop() {
     const [show, setShow] = useState(false);
@@ -33,7 +34,13 @@ export default function BackToTop() {
     return (
         <>
             {show && (
-                <a href="#" className="btn btn-dark py-3 fs-4 back-to-top" aria-label="Back to top" onClick={scrollToTop}><i className="bi bi-arrow-up"></i></a>
+                <button
+                    onClick={scrollToTop}
+                    className="fixed right-6 bottom-0 p-3 square-full bg-black dark:bg-gray-700 text-white shadow-lg hover:bg-gray-900 transition-colors z-50"
+                    aria-label="Back to top"
+                >
+                    <ArrowUp className="w-6 h-12" />
+                </button>
             )}
         </>
     );

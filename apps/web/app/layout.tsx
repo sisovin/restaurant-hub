@@ -1,6 +1,7 @@
 // app/layout.tsx
 import { ThemeProvider } from "@/components/theme-provider"
 import { Oswald, Rubik } from 'next/font/google';
+import BackToTop from "@/components/layout/Backtotop";
 import "./globals.css";
 import "./chef.css";
 import "./chef-extras.css";
@@ -26,10 +27,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${oswald.variable} ${rubik.variable}`}>
-      <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-      </head>
       <body>
         <ThemeProvider
           attribute="class"
@@ -38,6 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>
