@@ -18,7 +18,7 @@ export default function AboutSection() {
                                         src="/images/about.jpg"
                                         alt="Chef cooking"
                                         fill
-                                        className="object-cover rounded-tl-[50%]"
+                                        className="object-cover rounded-tl-[40%]"
                                     />
                                 </div>
                             </div>
