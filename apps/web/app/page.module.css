@@ -1,0 +1,105 @@
+/* Hero section styles */
+.heroMinHeight {
+    min-height: 500px;
+}
+
+/* About section styles */
+.aboutMinHeight {
+    min-height: 500px;
+}
+
+/* Facts section styles */
+.factIconContainer {
+    width: 80px;
+    height: 80px;
+    background: #111111;
+}
+
+/* Feature section styles */
+.featureIcon {
+    width: 150px;
+    height: 150px;
+}
+
+/* Team section styles */
+.teamImage {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.teamOverlay {
+    height: 100px;
+    background: rgba(34, 36, 41, .9);
+}
+
+.letterSpacing3 {
+    letter-spacing: 3px;
+}
+
+.letterSpacing1 {
+    letter-spacing: 1px;
+}
+
+/* Testimonial section styles */
+.testimonialMinHeight {
+    min-height: 500px;
+}
+
+.testimonialLeftRadius {
+    border-top-left-radius: 50%;
+}
+
+.testimonialRightRadius {
+    border-bottom-right-radius: 50%;
+}
+
+.testimonialImage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.testimonialClientImage {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+/* Blog section styles */
+.blogImageContainer {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+/* Instagram section styles */
+.instagramButton {
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
+
+.instagramImage {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+/* Menu section styles */
+.menuImageContainer {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+/* Section title containers */
+.sectionTitleContainer {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Animation styles */
+.animateRotate {
+    width: 160px;
+    height: 160px; }

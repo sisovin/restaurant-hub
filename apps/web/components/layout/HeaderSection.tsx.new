@@ -1,0 +1,44 @@
+'use client'
+
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
+
+interface HeaderSectionProps {
+    activeLink?: string;
+}
+
+export default function HeaderSection({ activeLink = 'home' }: HeaderSectionProps) {
+    const pathname = usePathname()
+    const [isSticky, setIsSticky] = useState(false)
+    
+    useEffect(() => {
+        const handleScroll = () => setIsSticky(window.scrollY > 90)
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+    
+    const navLink = (href: string, label: string) => {
+        const isActive = pathname === href || (href === '/' && activeLink === 'home') || 
+                        (href.includes(activeLink) && activeLink !== 'home');
+        
+        return (
+            <Link
+                href={href}
+                className={cn(
+                    'text-sm font-semibold px-4 py-2 transition-colors hover:text-orange-500',
+                    isActive && 'text-orange-500'
+                )}
+            >
+                {label}
+            </Link>
+        )
+    }

@@ -1,0 +1,8 @@
+.spinnerContainer {
+    z-index: 999;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+}

@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Emblema One';
+    src: url('/fonts/EmblemaOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+    font-family: 'Emblema One', system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h4,
+h5,
+h6,
+.font-body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+h5 {
+    font-weight: 500;
+}
+
+h6, 
+.font-body {
+    font-weight: 400;
+}
+
+/* Apply font to display classes commonly used in Bootstrap */
+.display-1,
+.display-2,
+.display-3 {
+    font-family: 'Emblema One', system-ui;
+}
+
+.display-4,
+.display-5,
+.display-6 {
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,111 @@
+/* Header styles */
+.header {
+    position: relative;
+    z-index: 999;
+}
+
+.header.sticky-top {
+    position: sticky;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Yellow/Gold background for the logo section */
+.logo-bg {
+    background-color: #FFC107 !important;
+}
+
+.navbar-brand h1 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    padding: 30px 15px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    outline: none;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #FFC107 !important;
+}
+
+.dropdown-item {
+    font-weight: 500;
+    color: #343a40;
+    padding: 15px 20px;
+    transition: all 0.3s;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.dropdown-item:hover {
+    background-color: #FFC107;
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-outline-secondary {
+    border-color: #ffffff;
+    color: #ffffff;
+    transition: all 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+.btn-outline-warning {
+    border-color: #FFC107;
+    color: #FFC107;
+    transition: all 0.3s;
+}
+
+.btn-outline-warning:hover {
+    background-color: #FFC107;
+    border-color: #FFC107;
+    color: #000;
+}
+
+.btn-square {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+/* Dark navbar background */
+.dark-navbar {
+    background-color: #111111 !important;
+}
+
+/* Warning text color for icons */
+.text-warning {
+    color: #FFC107 !important;
+}
